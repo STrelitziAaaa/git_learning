@@ -58,15 +58,20 @@
 
 ## git restore
 
+## git status
 
 ## 撤销修改
 - git checkout .
   - 将当前分支还原到最近一次commit的状态
+- git reset HEAD
+  - 将所有add文件移出stage,但不会撤销文件的修改
 ---
 # QA
 ## diff between add&commit
 > If committing is akin to "taking a snapshot", staging is about "composing the shot". see: [stackoverflow](https://stackoverflow.com/questions/25351450/what-does-adding-to-the-index-really-mean-in-git)
 
 ## switch branch
-在切换分支之前,需要保证所有当前修改的文件都被commit,否则会报错,除非你要切换的分支和当前分支是指向同一个结点
+- 在切换分支之前,需要保证所有当前修改的文件都被commit
+  - 必须是commit,add是不行的
+  - 否则会报错,除非你要切换的分支和当前分支是指向同一个结点
 
