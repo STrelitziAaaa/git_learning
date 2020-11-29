@@ -2,7 +2,12 @@
 你应该知道的:
 - 默认主分支: main(以前叫master,避免种族歧视改成main)
 - 默认远程主机名: origin
-- 
+- HEAD指针
+  - 你可以认为每一次commit都生成一个node,HEAD指针指向当前分支的最近一次commit对应的node,你也可以直接用当前分支名替代,因为分支名作为指针也总是指向分支的最近一次commit对应的node
+- working tree file
+  - 工作树文件,即当前在工作区编辑的那些文件
+- index/stage
+  - 索引区/暂存区,通过git add指令将working tree file加入index/stage,某种意义上,可以认为提交了那个file,因为你可以使用git checkout/restore随时将working tree file 恢复成index中的file了,但这种提交是对其他用户不可见的,真正的对于仓库的提交(对其他用户可见)是git commit
 # Start a working area
 ## git init
 在本地新建并初始化仓库,生成.git文件
@@ -13,13 +18,13 @@
 ## git add
 将modified/untracked文件加入stage(暂存区)
 - git add .
-  - 将当前路径的所有文件加入stage
+  - 将当前路径的所有文件(包括子文件夹)加入stage
 ## git commit
 将暂存区提交到仓库,自此一个本地仓库被更新了!
 - git commit -m "update readme"
   - 提交此次修改,-m代表message
 - git commit --amend
-  - 将此次提交覆盖最近的一次提交,常用于修改最近提交的message,事实上,两次提交之间完全可以add新文件
+  - 将此次提交覆盖最近的一次提交(作为对其的修改),常用于修改最近提交的message,事实上,两次提交之间完全可以add新文件
 ## git push
 将本地仓库与远程仓库同步(推送到远程仓库)
 - git push
@@ -30,7 +35,6 @@
   - 将本地分支推送到远程分支,若远程分支不存在则自动创建
 - git push origin :remote_branch_waiting_remove
   - 删除远程分支
-f
 
 ## git branch
 创建分支
@@ -58,7 +62,16 @@ f
 
 ## git pull
 
+# EXPERIMENTAL COMMAND
+在实验中的命令,行为可能随时改变,不过我认为一般不会有太大的改变了
 ## git restore
+恢复working tree file / index file,用来取代git checkout/reset的部分语义
+- git restore .
+  - 默认的,从index中恢复当前工作区文件
+- git restore --staged .
+## git switch
+切换分支,用于取代git checkout的部分语义
+
 
 ## git status
 
