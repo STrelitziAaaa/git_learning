@@ -62,7 +62,7 @@ f
 
 ## git status
 
-## 撤销stage外的文件修改
+## 撤销文件修改
 - git checkout .
   - 将当前分支的所有文件还原到stage中文件的状态,如果stage为空,就是最近一次commit的状态; 相当于从index中恢复文件,加入stage就是添加索引
 - git checkout -- [file]
@@ -73,7 +73,7 @@ f
 - git reset head [file]
   - 本质都是--mixed的作用,不撤销对文件的修改,只unstage
   - 将[file]文件移出stage,但不会撤销文件的修改
-## 撤销commit
+## 撤销commit/stage
 - git reset commitId (默认是--mixed)(可以是commitId,也可以是head~1,代表倒退1个commit)
   - 回到commitId那个版本
   - --mixed unstage,但不撤销对文件的修改
@@ -82,11 +82,12 @@ f
 ## 撤销merge
 ---
 # QA
-## diff between add&commit
-> If committing is akin to "taking a snapshot", staging is about "composing the shot". see: [stackoverflow](https://stackoverflow.com/questions/25351450/what-does-adding-to-the-index-really-mean-in-git)
+## Diff between add&commit
+If committing is akin to "taking a snapshot", staging is about "composing the shot".   
+See: [stackoverflow](https://stackoverflow.com/questions/25351450/what-does-adding-to-the-index-really-mean-in-git)
 
-## switch branch
-- 在切换分支之前,需要保证所有当前修改的文件都被commit
+## Switch branch
+在切换分支之前,需要保证所有当前修改的文件都被commit
   - 必须是commit,add是不行的
   - 否则会报错,除非你要切换的分支和当前分支是指向同一个结点
 
