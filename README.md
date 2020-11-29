@@ -73,7 +73,7 @@
 - git restore --staged(-S) --worktree(-W) .
   - 恢复index文件和working tree文件,即全部回退到上一次commit的状态
   - 相当于git reset --hard
-- git restore --sourse(-s) head~1
+- git restore --sourse(-s) head
   - 从指定的commit恢复 
 ## git switch
 切换分支,用于取代git checkout的部分语义
