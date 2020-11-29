@@ -68,9 +68,11 @@
 恢复working tree file / index file,用来取代git checkout/reset的部分语义
 - git restore .
   - 默认的,从index中恢复当前工作区文件
-- git restore --staged .
+- git restore --staged(-S) .
   - 取消文件的索引,即撤销git add,不会撤销修改
-- git restore --staged -w
+- git restore --staged(-S) --worktree(-W) .
+  - 恢复index文件和working tree文件,即全部回退到上一次commit的状态
+  - 相当于git reset --hard .
 ## git switch
 切换分支,用于取代git checkout的部分语义
 
