@@ -50,3 +50,7 @@
 # QA
 ## diff between add&commit
 > If committing is akin to "taking a snapshot", staging is about "composing the shot". see: [stackoverflow](https://stackoverflow.com/questions/25351450/what-does-adding-to-the-index-really-mean-in-git)
+
+## modify file
+1234
+fdsa
