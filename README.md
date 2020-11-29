@@ -73,19 +73,21 @@
 - git restore --staged(-S) --worktree(-W) .
   - 恢复index文件和working tree文件,即全部回退到上一次commit的状态
   - 相当于git reset --hard
-- git restore --sourse(-s) head
-  - 从指定的commit恢复 
+- -S,-W 用来指定恢复的地方,默认恢复working tree from index,如果恢复index,有想恢复working tree,就要两个都显式指定,相当于reset到最近的一次commit
+- git restore --sourse(-s) head .
+  - 从指定的commit恢复,只更改working tree,即如果你当前index有文件,是仍然存在的
 ## git switch
 切换分支,用于取代git checkout的部分语义
-
+- git switch -c new_branch
+  - --create , 即 git checkout -b new_branch 
 
 ## git status
-
+- git status,查看当前的状态
 ## 撤销文件修改
 - git checkout .
   - 将当前分支的所有文件还原到stage中文件的状态,如果stage为空,就是最近一次commit的状态; 相当于从index中恢复文件,加入stage就是添加索引
 - git checkout [file]
-## 移出stage
+## unstage
 - git reset 
   - 即 git reset --mixed head~1 (head~1也可以写成head)
   - 将所有add文件移出stage,但不会撤销文件的修改
@@ -93,7 +95,7 @@
   - 本质都是--mixed的作用,不撤销对文件的修改,只unstage
   - 将[file]文件移出stage,但不会撤销文件的修改
 ## 撤销commit/stage
-- git reset commitId (默认是--mixed)(可以是commitId,也可以是head~1,代表倒退1个commit)
+- git reset commitId (默认是--mixed)(可以是commitId,也可以是head,代表倒退1个commit)
   - 回到commitId那个版本
   - --mixed unstage,但不撤销对文件的修改
   - --soft 什么都不改变
