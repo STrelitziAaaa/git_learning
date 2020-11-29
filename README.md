@@ -28,29 +28,45 @@
   - 将本地分支推送到远程分支,若远程分支不存在则自动创建
 - git push origin :remote_branch_waiting_remove
   - 删除远程分支
+
+
 ## git branch
 创建分支
 - git branch new_branch
   - 创建新分支
 - git branch
   - 显示本repo所有分支,当前分支会带有前导*(比如* main),并高亮
+- git branch -a
+  - -all 显示所有分支(本地/远程)
+- git branch -d local_branch_waiting_remove
+  - 删除本地分支
+- git push origin -d remote_branch_waiting_remove
+  - 删除远程分支(与前面的 : 一样,但显然使用-d,自解释)
 
 ## git checkout
 切换分支
 - git checkout main
+- git checkout -b new_branch
+  - 创建并切换到new_branch分支, -b:branch
 
 ## git merge
 合并分支,或者更严格的说,是将其他分支合并进本分支
 - git checkout main & git merge dev
   - 切换到main分支,将dev分支合并进main分支
 
+## git pull
+
 ## git restore
 
+
+## 撤销修改
+- git checkout .
+  - 将当前分支还原到最近一次commit的状态
 ---
 # QA
 ## diff between add&commit
 > If committing is akin to "taking a snapshot", staging is about "composing the shot". see: [stackoverflow](https://stackoverflow.com/questions/25351450/what-does-adding-to-the-index-really-mean-in-git)
 
-## modify file
-1234
-fdsa
+## switch branch
+在切换分支之前,需要保证所有当前修改的文件都被commit,否则会报错,除非你要切换的分支和当前分支是指向同一个结点
+
