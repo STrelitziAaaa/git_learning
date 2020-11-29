@@ -19,7 +19,7 @@
 - git commit -m "update readme"
   - 提交此次修改,-m代表message
 - git commit --amend
-  - 修改最近的一次提交,常用于修改最近提交的message
+  - 将此次提交覆盖最近的一次提交,常用于修改最近提交的message,事实上,两次提交之间完全可以add新文件
 ## git push
 将本地仓库与远程仓库同步(推送到远程仓库)
 - git push
@@ -62,13 +62,18 @@ f
 
 ## git status
 
-## 撤销修改
+## 撤销stage外的文件修改
 - git checkout .
   - 将当前分支的所有文件还原到stage中文件的状态,如果stage为空,就是最近一次commit的状态; 相当于从index中恢复文件,加入stage就是添加索引
+- git checkout -- [file]
+## 移出stage
 - git reset HEAD
   - 将所有add文件移出stage,但不会撤销文件的修改
 - git reset HEAD [file]
   - 将[file]文件移出stage,但不会撤销文件的修改
+## 撤销commit
+- git reset
+## 撤销merge
 ---
 # QA
 ## diff between add&commit
