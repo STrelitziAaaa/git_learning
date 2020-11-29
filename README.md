@@ -97,9 +97,9 @@
 ## 撤销commit/stage
 - git reset commitId (默认是--mixed)(可以是commitId,也可以是head,代表倒退1个commit)
   - 回到commitId那个版本
-  - --mixed unstage,但不撤销对文件的修改
-  - --soft 什么都不改变
-  - --hard 全部撤销(即相当于全部重置到上一次commit)
+  - --mixed unstage,但不撤销对文件的修改(即git restore --staged .)
+  - --soft 不改变workingtree和index,只移动head指针到指定commit
+  - --hard 全部撤销(即相当于全部重置到上一次commit)(即git restore --staged --worktree .)
 ## 撤销merge
 ---
 # QA
