@@ -18,6 +18,8 @@
 将暂存区提交到仓库,自此一个本地仓库被更新了!
 - git commit -m "update readme"
   - 提交此次修改,-m代表message
+- git commit --amend
+  - 修改最近的一次提交,常用于修改最近提交的message
 ## git push
 将本地仓库与远程仓库同步(推送到远程仓库)
 - git push
@@ -28,7 +30,7 @@
   - 将本地分支推送到远程分支,若远程分支不存在则自动创建
 - git push origin :remote_branch_waiting_remove
   - 删除远程分支
-
+f
 
 ## git branch
 创建分支
@@ -62,9 +64,11 @@
 
 ## 撤销修改
 - git checkout .
-  - 将当前分支还原到最近一次commit的状态
+  - 将当前分支的所有文件还原到stage中文件的状态,如果stage为空,就是最近一次commit的状态; 相当于从index中恢复文件,加入stage就是添加索引
 - git reset HEAD
   - 将所有add文件移出stage,但不会撤销文件的修改
+- git reset HEAD [file]
+  - 将[file]文件移出stage,但不会撤销文件的修改
 ---
 # QA
 ## diff between add&commit
