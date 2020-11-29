@@ -69,6 +69,8 @@
 - git restore .
   - 默认的,从index中恢复当前工作区文件
 - git restore --staged .
+  - 取消文件的索引,即撤销git add,不会撤销修改
+- git restore --staged -w
 ## git switch
 切换分支,用于取代git checkout的部分语义
 
