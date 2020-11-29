@@ -67,14 +67,16 @@ f
   - 将当前分支的所有文件还原到stage中文件的状态,如果stage为空,就是最近一次commit的状态; 相当于从index中恢复文件,加入stage就是添加索引
 - git checkout -- [file]
 ## 移出stage
-- git reset HEAD
+- git reset 
+  - 即 git reset --mixed head~1 (head~1也可以写成head)
   - 将所有add文件移出stage,但不会撤销文件的修改
-- git reset HEAD [file]
+- git reset head [file]
+  - 本质都是--mixed的作用,不撤销对文件的修改,只unstage
   - 将[file]文件移出stage,但不会撤销文件的修改
 ## 撤销commit
-- git reset commitId (默认是--mixed)
+- git reset commitId (默认是--mixed)(可以是commitId,也可以是head~1,代表倒退1个commit)
   - 回到commitId那个版本
-  - --mixed 撤销add,不修改文件
+  - --mixed unstage,但不撤销对文件的修改
   - --soft 什么都不改变
   - --hard 全部撤销(即相当于全部重置到上一次commit)
 ## 撤销merge
