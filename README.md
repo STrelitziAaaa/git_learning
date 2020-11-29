@@ -65,7 +65,7 @@ f
 ## 撤销文件修改
 - git checkout .
   - 将当前分支的所有文件还原到stage中文件的状态,如果stage为空,就是最近一次commit的状态; 相当于从index中恢复文件,加入stage就是添加索引
-- git checkout -- [file]
+- git checkout [file]
 ## 移出stage
 - git reset 
   - 即 git reset --mixed head~1 (head~1也可以写成head)
