@@ -72,7 +72,11 @@ f
 - git reset HEAD [file]
   - 将[file]文件移出stage,但不会撤销文件的修改
 ## 撤销commit
-- git reset
+- git reset commitId (默认是--mixed)
+  - 回到commitId那个版本
+  - --mixed 撤销add,不修改文件
+  - --soft 什么都不改变
+  - --hard 全部撤销(即相当于全部重置到上一次commit)
 ## 撤销merge
 ---
 # QA
