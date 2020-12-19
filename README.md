@@ -118,3 +118,10 @@ See: [stackoverflow](https://stackoverflow.com/questions/25351450/what-does-addi
   - 必须是commit,add是不行的
   - 否则会报错,除非你要切换的分支和当前分支是指向同一个结点,或者使用参数--merge
 
+## 保留空文件夹
+.gitignore中如下编写,在a文件夹中加入空的.gitkeep
+- 这主要是因为git不会对文件夹track
+```
+as/*s
+!a/.gitkeeps
+```
