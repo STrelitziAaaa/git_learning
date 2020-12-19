@@ -74,7 +74,7 @@
 - git checkout [file]
 ## unstage
 - git reset 
-  - 即 git reset --mixed head~1 (head~1也可以写成head)
+  - 即 git reset . --mixed head~1 (head~1也可以写成head)
   - 将所有add文件移出stage,但不会撤销文件的修改
 - git reset head [file]
   - 本质都是--mixed的作用,不撤销对文件的修改,只unstage
