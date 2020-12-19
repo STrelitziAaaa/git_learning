@@ -122,6 +122,6 @@ See: [stackoverflow](https://stackoverflow.com/questions/25351450/what-does-addi
 .gitignore中如下编写,在a文件夹中加入空的.gitkeep
 - 这主要是因为git不会对文件夹track
 ```
-a/*s
-!a/.gitkeeps
+a/*
+!a/.gitkeep
 ```
