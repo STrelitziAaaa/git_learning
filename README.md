@@ -24,18 +24,22 @@
 将暂存区提交到仓库,自此一个本地仓库被更新了!
 - git commit -m "update readme"
   - 提交此次修改,-m代表message
-- git commit --amend
+- git commit -m "update readme" --amend
   - 将此次提交覆盖最近的一次提交(作为对其的修改),常用于修改最近提交的message,事实上,两次提交之间完全可以add新文件
+  - git push的时候要强制push: git push origin main:main -f
 ## git push
 将本地仓库与远程仓库同步(推送到远程仓库)
 - git push
-  - 是git push origin main:main的缩写
+  - 是git push origin main:main的缩写(其他分支同理,要先设置upstream)
 - git push origin remote_branch
   - 推送当前分支
 - git push origin local_branch:remote_branch
   - 将本地分支推送到远程分支,若远程分支不存在则自动创建
 - git push origin :remote_branch_waiting_remove
   - 删除远程分支
+- 第一次提交时,要set-upstream,即将本地分支和远程分支相关联,虽然一般将之设成一个名字,但它们不是通过名字关联的
+  - 关联后,就不再需要指定远程主机名/分支名了
+  - git push -u origin main:main -> git push
 
 ## git branch
 创建分支
@@ -106,6 +110,11 @@
 - git switch -c new_branch
   - --create , 即 git checkout -b new_branch 
 
+## 其他常用指令
+- 用其他分支的文件覆盖本分支的文件
+  - git checkout branch_name -- file_path
+- 用其他分支的提交应用在本分支
+  - git cherry-pick commit-id
 
 ---
 # QA
@@ -125,3 +134,8 @@ See: [stackoverflow](https://stackoverflow.com/questions/25351450/what-does-addi
 a/*
 !a/.gitkeep
 ```
+
+## 省略
+- 一般的,本地分支名可以省略,代表当前分支
+  - git push origin main:main -> git push origin main
+
