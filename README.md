@@ -130,6 +130,10 @@ See: [stackoverflow](https://stackoverflow.com/questions/25351450/what-does-addi
 ## 保留空文件夹
 .gitignore中如下编写,在a文件夹中加入空的.gitkeep
 - 这主要是因为git不会对文件夹track
+- ! 注意:,必须写a/*,如果是a/,则代表忽略文件夹,而不是文件夹下的所有文件
+  - 如果是a/,那么后续加入!a/.gitkeep也无效
+- 一般的,git add .gitignore后,规则将失效
+- 但如果是后加的规则,即被忽略的文件已经加入了stage,则必须git rm --cached file,然后git add .
 ```
 a/*
 !a/.gitkeep
